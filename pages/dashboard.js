@@ -50,16 +50,6 @@ function Dashboard() {
         }
     }, []);
 
-    //function logout
-    const logoutHanlder = async () => {
-        //remove token from cookies
-        Cookies.remove("token");
-
-        //redirect halaman login
-        Router.push('/');
-
-    };
-
     return (
         <Layout>
             <Head>
@@ -69,12 +59,8 @@ function Dashboard() {
                 <div className="row justify-content-center">
                     <div className="card border-0 rounded shadow-sm">
                         <div className="card-body row">
-
                             <div className="col-md-11">
                                 Selamat datang <strong className="text-uppercase">{user.username}</strong>
-                            </div>
-                            <div className="col-md-1">
-                                <button onClick={logoutHanlder} className="btn btn-md btn-sm btn-danger">Logout</button>
                             </div>
                         </div>
                     </div>
