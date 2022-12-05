@@ -57,12 +57,12 @@ function Home() {
       <Head>
         <title>Home</title>
       </Head>
-      <div className="container" style={{ marginTop: '80px' }}>
-        <div className="row mt-3">
+      <div className="container" style={{ marginTop: '100px', }}>
+        <div className="row mt-3" style={{ marginBottom: "100px" }}>
           <div className="col-md-6 mb-4">
             <div className="card">
               <div className="card-body">
-                <h5 className="card-title">Perhatian</h5>
+                <h5 className="card-title"><strong>Perhatian</strong></h5>
                 <p className="card-text">Bagi Cabang yang akan mendaftarkan pesertanya silahakn mendaftarkannya
                   melalui sistem ini.</p>
 
@@ -108,6 +108,10 @@ function Home() {
             </div>
           </div>
         </div>
+        
+        <footer className="bg-style mt-5">
+          <div className="text-white text-sm text-center py-2">© 2022 - Ruang Persis. All rights reserved.</div>
+        </footer>
       </div>
     </Layout>
   )

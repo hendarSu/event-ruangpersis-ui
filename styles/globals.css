@@ -36,3 +36,10 @@ a {
     background: black;
   }
 }
+
+.bg-style {
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg,rgba(31,121,9,1) 35%, rgba(0,212,255,1) 100%);
+  color: white;
+  border-radius: 9px;
+}
