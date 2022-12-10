@@ -8,9 +8,7 @@ import axios from "axios";
 import Cookies from 'js-cookie';
 
 //import router
-import Router from 'next/router';
 import Profile from './profile';
-
 
 function Navbar() {
     //function "fetchData"
@@ -32,22 +30,12 @@ function Navbar() {
             })
     }
 
-    const sectionProfile = async () => {
-        // if (user) {
-        //     <Profile/>
-        // }
-    }
-
-
     //hook useEffect
     useEffect(() => {
 
         //check token
         if (Cookies.get('token')) {
             fetchData();
-
-            //redirect page dashboard
-            Router.push('/dashboard');
         }
 
     }, []);
@@ -56,7 +44,7 @@ function Navbar() {
         <header>
             <nav className="navbar navbar-expand-md navbar-dark fixed-top fixed-top border-0 shadow-sm">
                 <div className="container">
-                    <a href='/' className="navbar-brand"><strong className='text-uppercase'>Agenda</strong> | Ruang Persis</a>
+                    <a href='/dashboard' className="navbar-brand"><strong className='text-uppercase'>Agenda</strong> | Ruang Persis</a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -69,7 +57,6 @@ function Navbar() {
             </nav>
         </header>
     )
-
 }
 
 export default Navbar

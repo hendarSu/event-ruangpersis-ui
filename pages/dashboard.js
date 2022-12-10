@@ -16,6 +16,9 @@ import axios from 'axios';
 //import js cookie
 import Cookies from 'js-cookie';
 
+// Component
+import Event from '../components/event_component';
+
 function Dashboard() {
 
     //get token
@@ -23,6 +26,18 @@ function Dashboard() {
 
     //state user
     const [user, setUser] = useState({});
+
+    //state user
+    const [event, setEvent] = useState([]);
+
+    const eventData = async () => {
+
+        //fetch user from Rest API
+        await axios.get(`${process.env.NEXT_PUBLIC_API_BACKEND}/v1/events/public`)
+            .then((response) => {
+                setEvent(current => response.data.data);
+            })
+    }
 
     //function "fetchData"
     const fetchData = async () => {
@@ -47,28 +62,32 @@ function Dashboard() {
         } else {
             // call function "fetchData"
             fetchData();
+            eventData();
         }
     }, []);
 
     return (
         <Layout>
             <Head>
-                <title>Profile Page</title>
+                <title>Profile</title>
             </Head>
             <div className="container" style={{ marginTop: "80px" }}>
                 <div className="row justify-content-center">
-                    <div className="card border-0 rounded shadow-sm">
-                        <div className="card-body row">
-                            <div className="col-md-11">
-                                Selamat datang <strong className="text-uppercase">{user.username}</strong>
+                    <div className="col-md-12">
+                        <div className="card border-0 rounded shadow-sm">
+                            <div className="card-body row">
+                                <div className="col-md-11">
+                                    Selamat datang <strong className="text-uppercase">{user.username}</strong>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <hr />
+                <div className="row mt-4">
+                    <Event event={event} />
+                </div>
             </div>
         </Layout>
-
     )
 
 }

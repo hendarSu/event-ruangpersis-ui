@@ -18,6 +18,9 @@ import Cookies from 'js-cookie';
 
 function Login() {
 
+    //get token
+    const token = Cookies.get('token');
+
     //define state
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -52,12 +55,11 @@ function Login() {
             })
     };
 
-    //hook useEffect
-    useEffect(() => {
+     //hook useEffect
+     useEffect(() => {
 
         //check token
-        if (Cookies.get('token')) {
-
+        if (token) {
             //redirect page dashboard
             Router.push('/dashboard');
         }

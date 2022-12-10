@@ -2,7 +2,7 @@
 import Layout from "../layouts/default";
 
 //import hook react
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 //import Head
 import Head from 'next/head';
@@ -47,8 +47,9 @@ function Home() {
       })
       .catch((error) => {
 
+        error.response.data.exception.message = "Username dan Password salah!"
         //assign error to state "validation"
-        setValidation(error.response.data);
+        setValidation(error.response.data.exception);
       })
   };
 
