@@ -9,6 +9,7 @@ import Cookies from 'js-cookie';
 
 //import router
 import Profile from './profile';
+import Link from 'next/link';
 
 function Navbar() {
     //function "fetchData"
@@ -44,7 +45,7 @@ function Navbar() {
         <header>
             <nav className="navbar navbar-expand-md navbar-dark fixed-top fixed-top border-0 shadow-sm">
                 <div className="container">
-                    <a href='/dashboard' className="navbar-brand"><strong className='text-uppercase'>Agenda</strong> | Ruang Persis</a>
+                    <Link href='/dashboard' className="navbar-brand"><strong className='text-uppercase'>Agenda</strong> | Ruang Persis</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
