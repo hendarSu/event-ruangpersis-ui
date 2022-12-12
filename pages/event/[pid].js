@@ -70,7 +70,7 @@ const Event = () => {
             marginTop: "100px"
           }} >
             <div className='col-md-6'>
-              <div className='shadow-lg'>
+              <div className='shadow-sm'>
                 <img src="/imgs/events.jpeg" className="img-fluid rounded-start" alt="..." />
               </div>
             </div>
