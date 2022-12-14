@@ -6,7 +6,7 @@ function EventComponent({ event }) {
             <div className="card mb-3 rounded shadow-sm">
                 <div className="row g-0">
                     <div className="col-md-6">
-                        <img src="/imgs/events.jpeg" className="img-fluid rounded-start" alt="..." />
+                        <img src="/imgs/musda.jpg" className="img-fluid rounded-start" alt="..." />
                     </div>
                     <div className="col-md-6">
                         <div className="card-body">

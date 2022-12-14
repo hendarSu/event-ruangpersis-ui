@@ -71,7 +71,7 @@ const Event = () => {
           }} >
             <div className='col-md-6'>
               <div className='shadow-sm'>
-                <img src="/imgs/events.jpeg" className="img-fluid rounded-start" alt="..." />
+                <img src="/imgs/musda.jpg" className="img-fluid rounded-start" alt="..." />
               </div>
             </div>
             <div className='col-md-6'>

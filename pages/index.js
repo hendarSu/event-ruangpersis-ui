@@ -104,7 +104,7 @@ function Home() {
           </div>
           <div className="col-md-6">
             <div className="shadow-lg">
-              <img src='/imgs/events.jpeg' className='img-fluid shadow-4' width="100%"
+              <img src='/imgs/musda.jpg' className='img-fluid shadow-4' width="100%"
                 alt="" />
             </div>
           </div>
