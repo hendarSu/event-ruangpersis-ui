@@ -68,7 +68,7 @@ function Login() {
     return (
         <Layout>
             <Head>
-                <title>Login Account - SantriKoding.com</title>
+                <title>Login Account</title>
             </Head>
             <div className="container" style={{ marginTop: '80px' }}>
                 <div className="row justify-content-center">
