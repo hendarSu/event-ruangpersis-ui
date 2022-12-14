@@ -51,7 +51,7 @@ function Register() {
     return(
         <Layout>
             <Head>
-                <title>Register Account - SantriKoding.com</title>
+                <title>Register Account - Event Ruang Persis</title>
             </Head>
             <div className="container" style={{ marginTop: '80px' }}>
                 <div className="row justify-content-center">
