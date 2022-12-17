@@ -24,11 +24,11 @@ function ParticipantPrint(props) {
         <div className="position-relative" ref={participantCardRef} style={{
           width: '340px',
         }}>
-          <img src="/imgs/participant-card.jpg" alt="Paticipant Card" className="img-fluid" />
+          <img src="/imgs/participant-card.jpg" alt="Paticipant Card" className="w-100" />
           <div
             className="position-absolute"
             style={{
-              bottom: '40px',
+              bottom: '30px',
               left: '110px'
             }}
           >
