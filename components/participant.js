@@ -1,3 +1,5 @@
+import ParticipantPrint from './participantPrint';
+
 function Participant({ participants }) {
     return (
         <div className="">
@@ -31,9 +33,10 @@ function Participant({ participants }) {
                             <td>{data.participant.name}</td>
                             <td>{data.participant.pd}</td>
                             <td>{data.participant.pc}</td>
-                            <td><button className="btn btn-sm btn-success" disabled>Kartu Peserta</button></td>
+                            <td>
+                                <ParticipantPrint data={data} />
+                            </td>
                         </tr>)
-
                     })}
 
                 </tbody>
