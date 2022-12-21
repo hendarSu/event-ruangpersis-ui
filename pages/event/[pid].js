@@ -24,6 +24,7 @@ const Event = () => {
   const router = useRouter()
   const { pid } = router.query;
   const [event, setEvent] = useState({});
+  const [eventQuota, setEventQuota] = useState({});
   const [participants, setParticipants] = useState([]);
 
   const eventData = async () => {
@@ -36,6 +37,7 @@ const Event = () => {
         .then((response) => {
           setEvent(current => response.data.data);
           eventDataOne(response.data.data._id);
+          eventQuotaOne(response.data.data._id);
         })
     }
   }
@@ -46,6 +48,15 @@ const Event = () => {
     await axios.get(`${process.env.NEXT_PUBLIC_API_BACKEND}/v1/event-registers/${id}`)
       .then((response) => {
         setParticipants(current => response.data.data);
+      })
+  }
+
+  const eventQuotaOne = async (id) => {
+    axios.defaults.headers.common['Authorization'] = `Bearer ${Cookies.get('token')}`
+    //fetch user from Rest API
+    await axios.get(`${process.env.NEXT_PUBLIC_API_BACKEND}/v1/event-quota/${id}`)
+      .then((response) => {
+        setEventQuota(current => response.data.data);
       })
   }
 
@@ -69,51 +80,74 @@ const Event = () => {
           <div className='row' style={{
             marginTop: "100px"
           }} >
-            <div className='col-md-6'>
+            <div className='col-md-4'>
               <div className='shadow-sm'>
                 <img src="/imgs/musda.jpg" className="img-fluid rounded-start" alt="..." />
               </div>
             </div>
-            <div className='col-md-6'>
-              <EventSubmit event={event} />
-
-              <div className='mt-4'>
-                <h5 className='fw-light'>Tentang {event.name}</h5>
-                <p>
-                  {event.description}
-                </p>
-                <h5 className='fw-light'>Agenda {event.name}</h5>
-                <table className='table'>
-                  <tbody>
-                    <tr>
-                      <td>
-                        Tanggal
-                      </td>
-                      <td>:</td>
-                      <td>
-                        {event ? event.date : event.date} s/d Selesai
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        Waktu Mulai
-                      </td>
-                      <td>:</td>
-                      <td>
-                        {event.time} WIB
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <h5 className='fw-light'>Lokasi</h5>
-                <p>{event.location}</p>
+            <div className='col-md-8'>
+              {event.type_event === "PRIVATE" ?
+                <EventSubmit event={event} /> : ""
+              }
+              <div className='row mt-4'>
+                <div className='col-md-7'>
+                  <h5 className='fw-light'>Tentang {event.name}</h5>
+                  <p>
+                    {event.description}
+                  </p>
+                  <h5 className='fw-light'>Agenda {event.name}</h5>
+                  <table className='table'>
+                    <tbody>
+                      <tr>
+                        <td>
+                          Tanggal
+                        </td>
+                        <td>:</td>
+                        <td>
+                          {event ? event.date : event.date} s/d Selesai
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Waktu Mulai
+                        </td>
+                        <td>:</td>
+                        <td>
+                          {event.time} WIB
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <h5 className='fw-light'>Lokasi</h5>
+                  <p>{event.location}</p>
+                </div>
+                {event.type_event === "PRIVATE" ?
+                  <div className='col-md-5 text-center'>
+                    <h5 className='fw-light'>
+                      Untuk Infaq Peserta dapat melalui
+                    </h5>
+                    <img src="/imgs/musda-rek.png" className="img-fluid rounded-start" alt="..." />
+                    <hr/>
+                    {eventQuota ?
+                      <h5>
+                        Total Infaq Rp {new Intl.NumberFormat().format(eventQuota.quota * 200000)}
+                      </h5>
+                      : ""}
+                  </div>
+                  : ""
+                }
               </div>
             </div>
             <div className='col-md-12'>
-              <hr />
-              {participants.length > 0 ?
-                <Participant participants={participants} />
-                : ""}
+              <div className='shadow-sm p-2 mt-5'>
+                <h5>
+                  <b>Perwakilan Peserta</b> <br />{eventQuota ? <small className='fw-light'>Kuota Tersisa {eventQuota.quota - participants.length}</small> : " "}
+                </h5>
+                <hr />
+                {participants.length > 0 ?
+                  <Participant participants={participants} />
+                  : ""}
+              </div>
             </div>
           </div>
           :
