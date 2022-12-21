@@ -104,12 +104,28 @@ function Home() {
           </div>
           <div className="col-md-6">
             <div className="shadow-lg">
-              <img src='/imgs/musda.jpg' className='img-fluid shadow-4' width="100%"
-                alt="" />
+              <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
+              <div className="carousel-inner">
+                <div className="carousel-item active">
+                  <img src="/imgs/musda.jpg" className="d-block w-100" />
+                </div>
+                <div className="carousel-item">
+                  <img src="/imgs/events.jpeg" className="d-block w-100" />
+                </div>
+              </div>
+              <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span className="visually-hidden">Previous</span>
+              </button>
+              <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                <span className="visually-hidden">Next</span>
+              </button>
+            </div>
             </div>
           </div>
         </div>
-        
+
         <footer className="bg-style mt-5">
           <div className="text-white text-sm text-center py-2">© 2022 - Ruang Persis. All rights reserved.</div>
         </footer>
