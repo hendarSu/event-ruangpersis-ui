@@ -60,17 +60,18 @@ function Navbar() {
           {user.username ? (
             <Profile user={user} />
           ) : (
-            <div className="collapse navbar-collapse" id="navbarCollapse">
-              <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li className="nav-item">
-                  <Link href="/register"
-                    className="ml-2 btn btn-sm btn-md btn-light"
-                  >
-                    Registrasi
-                  </Link>
-                </li>
-              </ul>
-            </div>
+            // <div className="collapse navbar-collapse" id="navbarCollapse">
+            //   <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+            //     <li className="nav-item">
+            //       <Link href="/register"
+            //         className="ml-2 btn btn-sm btn-md btn-light"
+            //       >
+            //         Registrasi
+            //       </Link>
+            //     </li>
+            //   </ul>
+            // </div>
+            ""
           )}
         </div>
       </nav>
