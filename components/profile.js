@@ -4,7 +4,7 @@ import Cookies from 'js-cookie';
 //import router
 import Router from 'next/router';
 
-function Profile({user}) {
+function Profile({ user }) {
 
     //function logout
     const logoutHanlder = async () => {
@@ -16,15 +16,22 @@ function Profile({user}) {
         Router.push('/');
 
     };
-    
+
     return (
         <div className="collapse navbar-collapse" id="navbarCollapse">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li>
-                    <button className="btn btn-sm ml-2 text-white">{user.username}</button>
-                </li>
-                <li className="nav-item">
-                    <button onClick={logoutHanlder} className="ml-2 btn btn-sm btn-md btn-danger">Logout</button>
+                <li className="nav-item dropdown">
+                    <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button className="btn ml-2 text-white"><i class="bi bi-person-circle"></i> {user.username}</button>
+                    </a>
+                    <ul className="dropdown-menu">
+                        <li><a className="dropdown-item" href="#"><i class="bi bi-person-circle"></i> Profile</a></li>
+                        <li><a className="dropdown-item" href="#"><i class="bi bi-calendar2"></i> History</a></li>
+                        <li><hr className="dropdown-divider" /></li>
+                        <li>
+                         <a onClick={logoutHanlder} className="dropdown-item"> <i class="bi bi-box-arrow-left"></i> logout</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>

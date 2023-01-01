@@ -42,9 +42,11 @@ function Navbar() {
     <header>
       <nav className="navbar navbar-expand-md navbar-dark fixed-top fixed-top border-0 shadow-sm">
         <div className="container">
+
           <Link href="/dashboard" className="navbar-brand">
             <strong className="text-uppercase">Agenda</strong> | Ruang Persis
           </Link>
+
           <button
             className="navbar-toggler"
             type="button"
@@ -56,6 +58,16 @@ function Navbar() {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
+
+          {user.username ? (<div className="collapse navbar-collapse" id="navbarCollapse">
+            <ul className="navbar-nav ma-auto">
+              <li className="nav-item">
+                <Link className="btn btn-sm btn-light" href="/dashboard">
+                  <i class="bi bi-calendar-event"></i> Agenda Saya
+                </Link>
+              </li>
+            </ul>
+          </div>) : ""}
 
           {user.username ? (
             <Profile user={user} />
@@ -73,6 +85,8 @@ function Navbar() {
             // </div>
             ""
           )}
+
+
         </div>
       </nav>
     </header>
