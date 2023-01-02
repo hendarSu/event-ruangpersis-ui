@@ -22,14 +22,14 @@ function Profile({ user }) {
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li className="nav-item dropdown">
                     <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <button className="btn ml-2 text-white"><i class="bi bi-person-circle"></i> {user.username}</button>
+                        <button className="btn ml-2 text-white"><i className="bi bi-person-circle"></i> {user.username}</button>
                     </a>
                     <ul className="dropdown-menu">
-                        <li><a className="dropdown-item" href="#"><i class="bi bi-person-circle"></i> Profile</a></li>
-                        <li><a className="dropdown-item" href="#"><i class="bi bi-calendar2"></i> History</a></li>
+                        <li><a className="dropdown-item" href="#"><i className="bi bi-person-circle"></i> Profile</a></li>
+                        <li><a className="dropdown-item" href="#"><i className="bi bi-calendar2"></i> History</a></li>
                         <li><hr className="dropdown-divider" /></li>
                         <li>
-                         <a onClick={logoutHanlder} className="dropdown-item"> <i class="bi bi-box-arrow-left"></i> logout</a>
+                         <a onClick={logoutHanlder} className="dropdown-item"> <i className="bi bi-box-arrow-left"></i> logout</a>
                         </li>
                     </ul>
                 </li>

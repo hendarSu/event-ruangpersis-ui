@@ -72,7 +72,15 @@ const Event = () => {
   return (
     <Layout>
       <Head>
-        {(event && pid) ? <title>{event.name}</title> : <title>Event tidak ditemukan!</title>}
+        {(event && pid) ?
+          <title>{event.name}</title>
+          : <title>Event tidak ditemukan!</title>}
+
+        {(event && pid) ? <meta
+          name="description"
+          content={event.description}
+        /> : ""}
+
       </Head>
 
       <div className='container mt-5'>
@@ -127,7 +135,7 @@ const Event = () => {
                       Untuk Infaq Peserta dapat melalui
                     </h5>
                     <img src="/imgs/musda-rek.png" className="img-fluid rounded-start" alt="..." />
-                    <hr/>
+                    <hr />
                     {eventQuota ?
                       <h5>
                         Total Infaq Rp {new Intl.NumberFormat().format(eventQuota.quota * 200000)}

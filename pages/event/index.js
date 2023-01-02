@@ -1,5 +1,5 @@
 //layout
-import Layout from "../layouts/default";
+import Layout from "../../layouts/default";
 
 //import hook react
 import { useState, useEffect } from 'react';
@@ -17,9 +17,9 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 
 // Component
-import Event from '../components/event_component';
+import EventComponent from '../../components/event_component';
 
-function Dashboard() {
+function Event() {
 
     //get token
     const token = Cookies.get('token');
@@ -69,22 +69,24 @@ function Dashboard() {
     return (
         <Layout>
             <Head>
-                <title>Agenda | Event Ruang Persis</title>
+                <title>Agenda Saya | Event Ruang Persis</title>
             </Head>
             <div className="container" style={{ marginTop: "80px" }}>
                 <div className="row justify-content-center">
                     <div className="col-md-12">
                         <div className="card border-0 rounded shadow-sm">
-                            <div className="card-body row">
-                                <div className="col-md-11">
-                                    Selamat datang <strong className="text-uppercase">{user.username}</strong>
-                                </div>
+                            <div className="card-body row pr-3 pl-3">
+                                <h5 className="card-title">Agenda <strong >Saya</strong></h5>
+                                <hr/>
+                                <p className="card-text">
+                                    Berikut merupakan daftar agenda yang anda selengarakan.
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="row mt-4">
-                    <Event event={event} />
+                    <EventComponent event={event} />
                 </div>
             </div>
         </Layout>
@@ -92,4 +94,4 @@ function Dashboard() {
 
 }
 
-export default Dashboard;
+export default Event;

@@ -62,8 +62,8 @@ function Navbar() {
           {user.username ? (<div className="collapse navbar-collapse" id="navbarCollapse">
             <ul className="navbar-nav ma-auto">
               <li className="nav-item">
-                <Link className="btn btn-sm btn-light" href="/dashboard">
-                  <i class="bi bi-calendar-event"></i> Agenda Saya
+                <Link className="btn btn-sm btn-light" href="/event">
+                  <i className="bi bi-calendar-event"></i> Agenda Saya
                 </Link>
               </li>
             </ul>
