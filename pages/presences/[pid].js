@@ -6,7 +6,6 @@ import QrReader from "react-qr-reader";
 //import hook react
 import { useState, useEffect } from 'react';
 
-
 //import Head
 import Head from 'next/head';
 
@@ -14,7 +13,6 @@ const Presences = () => {
 
     const [showCam, setShowCam] = useState(false);
     const [qrCodeContent, setQrCodeContent] = useState();
-
 
     const handleScan = async (data) => {
         if (data) {
@@ -57,7 +55,6 @@ const Presences = () => {
                 </div>
             ) : null}
 
-            
             <p>QR Code</p>
             <textarea
                 rows="10"
@@ -66,8 +63,7 @@ const Presences = () => {
                 onChange={handleChange}
             />
         </div>
-        </Layout>
-       
+        </Layout>       
     )
 }
 

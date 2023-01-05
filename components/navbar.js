@@ -44,7 +44,8 @@ function Navbar() {
         <div className="container">
 
           <Link href="/dashboard" className="navbar-brand">
-            <strong className="text-uppercase">Agenda</strong> | Ruang Persis
+            <img src="/imgs/logo.png"/>
+            {/* <strong className="text-uppercase">Agenda</strong> | Ruang Persis */}
           </Link>
 
           <button
