@@ -1,4 +1,5 @@
-import ParticipantPrint from './participantPrint';
+import ParticipantPrint from './participant_print';
+import ParticipantPrintAll from './participant_print_all';
 
 function Participant({ participants }) {
     return (
@@ -21,8 +22,8 @@ function Participant({ participants }) {
                         <th>
                             PC
                         </th>
-                        <th>
-                            #
+                        <th className="text-center">
+                            <ParticipantPrintAll participants={participants} />
                         </th>
                     </tr>
 
@@ -33,7 +34,7 @@ function Participant({ participants }) {
                             <td>{data.participant.name}</td>
                             <td>{data.participant.pd}</td>
                             <td>{data.participant.pc}</td>
-                            <td>
+                            <td className="text-center">
                                 <ParticipantPrint data={data} />
                             </td>
                         </tr>)
