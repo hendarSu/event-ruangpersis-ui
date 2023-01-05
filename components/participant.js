@@ -21,7 +21,7 @@ function Participant({ participants }) {
                         <th>
                             PC
                         </th>
-                        <th>
+                        <th colSpan={2}>
                             #
                         </th>
                     </tr>
@@ -33,8 +33,9 @@ function Participant({ participants }) {
                             <td>{data.participant.name}</td>
                             <td>{data.participant.pd}</td>
                             <td>{data.participant.pc}</td>
+                            <td>{i+1}</td>
                             <td>
-                                <ParticipantPrint data={data} />
+                                <ParticipantPrint data={data} participants={participants} />
                             </td>
                         </tr>)
                     })}

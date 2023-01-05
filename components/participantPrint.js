@@ -3,7 +3,7 @@ import ReactToPrint from 'react-to-print';
 import QRCode from 'react-qr-code';
 
 function ParticipantPrint(props) {
-  const { data } = props || {};
+  const { data } = props;
   const participantCardRef = useRef();
 
   return (
@@ -14,6 +14,7 @@ function ParticipantPrint(props) {
             <button className="btn btn-sm btn-success">Kartu Peserta</button>
           );
         }}
+        documentTitle={data.barcode}
         content={() => participantCardRef.current}
         pageStyle={`@page { size: 90mm 123mm; margin: 5mm }`}
       />
