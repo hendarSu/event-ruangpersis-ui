@@ -23,7 +23,7 @@ function ParticipantPrint(props) {
           width: '340px',
           margin: 0
         }}>
-          <img src="/imgs/participant-card.jpg" alt="Paticipant Card" className="w-100" />
+          {/* <img src="/imgs/participant-card.jpg" alt="Paticipant Card" className="w-100" /> */}
           <div
             className="position-absolute"
             style={{

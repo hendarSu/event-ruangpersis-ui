@@ -1,11 +1,8 @@
-import { useRouter } from 'next/router';
-//layout
-import Layout from "./../../layouts/default";
+import { useEffect, useState } from 'react';
+import Router, { useRouter } from 'next/router';
 
 //import Head
 import Head from 'next/head';
-
-import { useEffect, useState } from 'react';
 
 //import js cookie
 import Cookies from 'js-cookie';
@@ -13,12 +10,12 @@ import Cookies from 'js-cookie';
 //import axios
 import axios from 'axios';
 
-import EventSubmit from './../../components/submit_event'
+//layout
+import Layout from "./../../layouts/default";
 
+import EventSubmit from './../../components/submit_event'
 import Participant from './../../components/participant'
 
-//import router
-import Router from 'next/router';
 
 const Event = () => {
   const router = useRouter()
@@ -147,11 +144,11 @@ const Event = () => {
               </div>
             </div>
             <div className='col-md-12'>
-              <div className='shadow-sm p-2 mt-5'>
+              <div className='shadow-sm p-3 mt-5'>
                 <h5>
-                  <b>Perwakilan Peserta</b> <br />{eventQuota ? <small className='fw-light'>Kuota Tersisa {eventQuota.quota - participants.length}</small> : " "}
+                  <b>Perwakilan Peserta</b> <br />
+                  {eventQuota ? <small className='fw-light'>Kuota Tersisa {eventQuota.quota - participants.length}</small> : " "}
                 </h5>
-                <hr />
                 {participants.length > 0 ?
                   <Participant participants={participants} />
                   : ""}
