@@ -18,7 +18,7 @@ function PresencesList({ participants }) {
                     </tr>
 
                     {participants.map((data, i) => {
-                        return (<tr>
+                        return (<tr key={i}>
                             <td>{i+1}</td>
                             <td>{data.register.barcode}</td>
                             <td>{data.participant.npa}</td>
