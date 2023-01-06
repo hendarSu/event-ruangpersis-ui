@@ -17,7 +17,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 
 // Component
-import EventComponent from '../../components/event_component';
+import MyEventComponent from '../../components/myevent_component';
 
 function Event() {
 
@@ -32,8 +32,10 @@ function Event() {
 
     const eventData = async () => {
 
+        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+
         //fetch user from Rest API
-        await axios.get(`${process.env.NEXT_PUBLIC_API_BACKEND}/v1/events/public`)
+        await axios.get(`${process.env.NEXT_PUBLIC_API_BACKEND}/v1/events`)
             .then((response) => {
                 setEvent(current => response.data.data);
             })
@@ -86,7 +88,7 @@ function Event() {
                     </div>
                 </div>
                 <div className="row mt-4">
-                    <EventComponent event={event} />
+                    <MyEventComponent event={event} />
                 </div>
             </div>
         </Layout>

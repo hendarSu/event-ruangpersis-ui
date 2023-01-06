@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-function EventComponent({ event }) {
+function MyEventComponent({ event }) {
     const eventList = event.map((data) =>
         <div className="col-md-3" key={data._id}>
             <div className="card mb-3 rounded shadow-sm">
@@ -16,7 +16,7 @@ function EventComponent({ event }) {
                             {/* <p className="card-text">
                                 <small className="text-muted">{data.user.name.toUpperCase()}</small>
                             </p> */}
-                            <Link href={"event/"+data.slug} className="btn btn-light btn-sm btn" style={{ width: "100%" }}>Daftar</Link>
+                            <Link href={"event/detail/"+data._id} className="btn btn-light btn-sm btn" style={{ width: "100%" }}>Detail</Link>
                         </div>
                     </div>
                 </div>
@@ -31,4 +31,4 @@ function EventComponent({ event }) {
     );
 }
 
-export default EventComponent
+export default MyEventComponent
