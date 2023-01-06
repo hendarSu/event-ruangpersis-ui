@@ -17,9 +17,7 @@
     "popper.js": "^1.16.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-qr-barcode-scanner": "^1.0.6",
     "react-qr-code": "^2.0.11",
-    "react-qr-reader": "^3.0.0-beta-1",
     "react-to-print": "^2.14.10"
   },
   "devDependencies": {
