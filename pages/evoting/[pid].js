@@ -128,10 +128,10 @@ const Evoting = () => {
                                     <div className="mb-3">
                                         <input type="text" className="form-control" value={barcode} onChange={(e) => setBarcode(e.target.value)} placeholder="Masukkan Barcode" required />
                                     </div>
-                                    <div className='mt-4 mb-4 d-flex justify-content-center'>
+                                    <div className='mt-4 mb-4 row'>
                                         {votingObject.length > 0 ?
                                             votingObject.map((data, i) => {
-                                                return (<div key={"object-" + i}>
+                                                return (<div className='col-md-4 col-sm-6 d-flex justify-content-center' key={"object-" + i}>
                                                     <input type="radio" className="btn-check" name="voting_object_id" id={data._id} value={data._id}  autocomplete="off" required  onChange={(e) => setVotingId(e.target.value)}  />
 
                                                     <label className="btn btn-outline-success m-2" for={data._id} >
