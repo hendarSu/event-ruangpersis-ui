@@ -70,6 +70,9 @@ const Evoting = () => {
                 resetFrom()
                 presenceData(pid);
                 resetValidation();
+                setTimeout(()=> {
+                    Router.push('/evoting');
+                }, 1000)
             }).catch((error) => {
                 //assign error to state "validation"
                 resetFrom()
@@ -83,6 +86,8 @@ const Evoting = () => {
     useEffect(() => {
         if (pid && typeof pid !== 'undefined') {
             scheduleData();
+        } else {
+            Router.push('/evoting');
         }
     }, []);
 
