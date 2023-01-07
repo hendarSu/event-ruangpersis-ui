@@ -61,15 +61,13 @@ const Evoting = () => {
         }
 
         //send data to server
-        await axios.post(`${process.env.NEXT_PUBLIC_API_BACKEND}/v1/evoting`, data)
+        await axios.post(`${process.env.NEXT_PUBLIC_API_BACKEND}/v1/evotings`, data)
             .then((response) => {
                 // alert();
                 setValidation({
                     success: `Peserta dengan Barcode ${barcode.toUpperCase()} berhasil submit!`
                 });
                 resetFrom()
-                presenceData(pid);
-                resetValidation();
                 setTimeout(()=> {
                     Router.push('/evoting');
                 }, 1000)
