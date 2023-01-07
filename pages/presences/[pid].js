@@ -12,7 +12,6 @@ import axios from 'axios';
 
 //layout
 import Layout from "./../../layouts/default";
-import SubmitPresence from '../../components/submit_presence';
 import PresencesList from '../../components/presences';
 
 const Presences = () => {
@@ -69,7 +68,6 @@ const Presences = () => {
             schedule_id: schedule._id
         }
 
-
         //set axios header dengan type Authorization + Bearer token
         axios.defaults.headers.common['Authorization'] = `Bearer ${Cookies.get('token')}`
 
@@ -78,7 +76,7 @@ const Presences = () => {
             .then((response) => {
                 // alert();
                 setValidation({
-                    success: `Peserta dengan Barcode ${barcode} berhasil ditambahkan!`
+                    success: `Peserta dengan Barcode ${barcode.toUpperCase()} berhasil ditambahkan!`
                 });
                 // router.reload(window.location.pathname)
                 resetFrom()
@@ -89,7 +87,7 @@ const Presences = () => {
                 //assign error to state "validation"
                 error.response.data.message = error.response.data.error;
                 setValidation({
-                    message : `Peserta dengan Barcode ${barcode} sudah menghadiri sesi ini!`
+                    message : `Peserta dengan Barcode ${barcode.toUpperCase()} sudah menghadiri sesi ini!`
                 });
                 resetValidation();
             })
@@ -161,10 +159,6 @@ const Presences = () => {
                         {schedulePresence.length > 0 ?
                             <PresencesList participants={schedulePresence} />
                             : ""}
-
-                        {/* {schedulePresence ?  */}
-                        {/* <PresencesList participants={schedulePresence}/>: ""} */}
-
                     </div>
                 </div>
 

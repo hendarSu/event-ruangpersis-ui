@@ -1,7 +1,7 @@
 function PresencesList({ participants }) {
     return (
         <div className="card border-0 rounded shadow-lg mt-4 p-2">
-            <h5 className="fw-light mt-1 text-center">Kehadiran</h5>
+            <h6 className="fw-light mt-1 text-center">Kehadiran : <b>{participants.length} Peserta</b></h6>
             <table className="table mr-2 ml-2 mt-2">
                 <tbody>
                     <tr>
