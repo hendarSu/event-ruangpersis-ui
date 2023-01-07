@@ -42,7 +42,7 @@ const Event = () => {
   const eventDataOne = async (id) => {
     axios.defaults.headers.common['Authorization'] = `Bearer ${Cookies.get('token')}`
     //fetch user from Rest API
-    await axios.get(`${process.env.NEXT_PUBLIC_API_BACKEND}/v1/event-registers/${id}`)
+    await axios.get(`${process.env.NEXT_PUBLIC_API_BACKEND}/v1/event-registers/list/${id}`)
       .then((response) => {
         setParticipants(current => response.data.data);
       })
