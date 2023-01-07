@@ -84,7 +84,7 @@ const Presences = () => {
             .then((response) => {
                 // alert();
                 setValidation({
-                    success: `Peserta dengan Barcode ${barcode.toUpperCase()} berhasil ditambahkan!`
+                    success: `Peserta dengan Barcode ${data.barcode.toUpperCase()} berhasil ditambahkan!`
                 });
                 // router.reload(window.location.pathname)
                 resetFrom()
