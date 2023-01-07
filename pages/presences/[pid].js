@@ -1,5 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Router, { useRouter } from 'next/router';
+import dynamic from 'next/dynamic'
+const QrReader = dynamic(() => import('react-qr-scanner'), { ssr: false })
 
 //import Head
 import Head from 'next/head';
@@ -19,6 +21,8 @@ const Presences = () => {
     const { pid } = router.query;
     const [schedule, setSchedule] = useState({});
     const [schedulePresence, setSchedulePresence] = useState({});
+    const [showScanReader, setShowScanReader] = useState(false);
+    const qrReaderRef = useRef(null);
 
     //define state
     const [barcode, setBarcode] = useState("");
@@ -60,11 +64,15 @@ const Presences = () => {
     }
 
     const submitHandler = async (e) => {
-        e.preventDefault();
+        const { isFromScanner, barcodeFromScanner } = e || {};
+
+        if (e.preventDefault) {
+            e.preventDefault();
+        }
 
         //initialize formData
         const data = {
-            barcode: barcode,
+            barcode: isFromScanner ? barcodeFromScanner : barcode,
             schedule_id: schedule._id
         }
 
@@ -82,12 +90,14 @@ const Presences = () => {
                 resetFrom()
                 presenceData(pid);
                 resetValidation();
+                setShowScanReader(false);
             }).catch((error) => {
                 resetFrom()
                 //assign error to state "validation"
-                error.response.data.message = (error.response.data.error === "Peserta tidak terdaftar!")? error.response.data.error : `Peserta dengan Barcode ${barcode.toUpperCase()} sudah menghadiri sesi ini!`;
+                error.response.data.message = (error.response.data.error === "Peserta tidak terdaftar!") ? error.response.data.error : `Peserta dengan Barcode ${barcode.toUpperCase()} sudah menghadiri sesi ini!`;
                 setValidation(error.response.data);
                 resetValidation();
+                setShowScanReader(false);
             })
     };
 
@@ -142,15 +152,36 @@ const Presences = () => {
                                         </div>
                                     )
                                 }
-                                <form onSubmit={submitHandler}>
-                                    <div className="mb-3">
-                                        <input type="text" className="form-control" value={barcode} onChange={(e) => setBarcode(e.target.value)} placeholder="Masukkan Barcode" required />
+                                <div className="row">
+                                    <div className={`${showScanReader ? 'col-md-6 p-2' : 'col-md-12'}`}>
+                                        <form onSubmit={submitHandler}>
+                                            <div className="mb-3">
+                                                <input type="text" className="form-control" value={barcode} onChange={(e) => setBarcode(e.target.value)} placeholder="Masukkan Barcode" required />
+                                            </div>
+                                            <div className="d-flex flex-row btn-group ">
+                                                <button type="button" className="btn btn-sm btn-info" onClick={() => setShowScanReader(true)}><i className="bi bi-qr-code-scan"></i> Scan Barcode</button>
+                                                <button type="submit" className="btn btn-sm btn-primary"><i className="bi bi-calendar-check"></i> Hadir</button>
+                                            </div>
+                                        </form>
                                     </div>
-                                    <div className="d-flex flex-row btn-group ">
-                                        <button type="button" className="btn btn-sm btn-info"><i className="bi bi-qr-code-scan"></i> Scan Barcode</button>
-                                        <button type="submit" className="btn btn-sm btn-primary"><i className="bi bi-calendar-check"></i> Hadir</button>
-                                    </div>
-                                </form>
+                                    {
+                                        showScanReader && (
+                                            <div className={`${showScanReader ? 'col-md-6 p-2' : 'col-md-12'}`}>
+                                                <QrReader
+                                                    delay={500}
+                                                    onError={console.log}
+                                                    style={{ width: '100%' }}
+                                                    onScan={(result) => {
+                                                        if (result?.text && (result?.text != barcode)) { 
+                                                            setBarcode(result.text); // handle looping request
+                                                            submitHandler({ isFromScanner: true, barcodeFromScanner: result.text });
+                                                        }
+                                                    }}
+                                                />
+                                            </div>
+                                        )
+                                    }
+                                </div>
                             </div>
                         </div>
 
