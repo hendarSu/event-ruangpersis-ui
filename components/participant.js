@@ -29,7 +29,6 @@ function Participant({ participants }) {
                             <td>{data.barcode}</td>
                             <td>{data.participant.npa}</td>
                             <td>{data.participant.name}</td>
-                            {/* <td>{data.participant.pd}</td> */}
                             <td>{data.participant.pc}</td>
                             <td className="text-center">
                                 <ParticipantPrint data={data} />
