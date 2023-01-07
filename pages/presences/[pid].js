@@ -171,8 +171,9 @@ const Presences = () => {
                                                     delay={500}
                                                     onError={console.log}
                                                     style={{ width: '100%' }}
+                                                    facingMode="environment"
                                                     onScan={(result) => {
-                                                        if (result?.text && (result?.text != barcode)) { 
+                                                        if (result?.text && (result?.text != barcode)) {
                                                             setBarcode(result.text); // handle looping request
                                                             submitHandler({ isFromScanner: true, barcodeFromScanner: result.text });
                                                         }

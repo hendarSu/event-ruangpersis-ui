@@ -25,7 +25,7 @@ function TemplatePrintAll({ datas }) {
   let printPages = [];
 
   for (const data of datas) {
-    const tempTemplate = <ParticipantCard data={data} />;
+    const tempTemplate = <ParticipantCard key={data.barcode} data={data} />;
     printPages.push(tempTemplate);
   }
 
