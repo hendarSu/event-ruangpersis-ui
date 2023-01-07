@@ -85,10 +85,8 @@ const Presences = () => {
             }).catch((error) => {
                 resetFrom()
                 //assign error to state "validation"
-                error.response.data.message = error.response.data.error;
-                setValidation({
-                    message : `Peserta dengan Barcode ${barcode.toUpperCase()} sudah menghadiri sesi ini!`
-                });
+                error.response.data.message = (error.response.data.error === "Peserta tidak terdaftar!")? error.response.data.error : `Peserta dengan Barcode ${barcode.toUpperCase()} sudah menghadiri sesi ini!`;
+                setValidation(error.response.data);
                 resetValidation();
             })
     };
