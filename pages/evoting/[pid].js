@@ -4,9 +4,6 @@ import Router, { useRouter } from 'next/router';
 //import Head
 import Head from 'next/head';
 
-//import js cookie
-import Cookies from 'js-cookie';
-
 //import axios
 import axios from 'axios';
 
@@ -23,6 +20,9 @@ const Evoting = () => {
     const [barcode, setBarcode] = useState("");
     const [votingId, setVotingId] = useState("");
 
+    const [votingObject, setVotingObject] = useState([]);
+
+
     //define state validation
     const [validation, setValidation] = useState([]);
 
@@ -31,6 +31,7 @@ const Evoting = () => {
         await axios.get(`${process.env.NEXT_PUBLIC_API_BACKEND}/v1/schedules/evoting/${pid}`)
             .then((response) => {
                 setSchedule(current => response.data.data);
+                setVotingObject(current => response.data.data.voting_objects)
             })
     }
 
@@ -104,8 +105,6 @@ const Evoting = () => {
                             <h5 className='font-weight-light'>{schedule.name}</h5>
                         </div>
 
-                        {/* <SubmitPresence schedule={schedule} /> */}
-
                         <div className="card border-0 rounded shadow-lg">
                             <div className="card-body">
                                 {
@@ -126,26 +125,19 @@ const Evoting = () => {
                                     <div className="mb-3">
                                         <input type="text" className="form-control" value={barcode} onChange={(e) => setBarcode(e.target.value)} placeholder="Masukkan Barcode" required />
                                     </div>
-                                    <div className='mt-5 mb-5 d-flex justify-content-center'>
-                                        <input type="radio" className="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" required />
-                                        <label className="btn btn-outline-success m-2" for="success-outlined">
-                                            <img src="/imgs/people.png" width={175} />
-                                            <p className='mt-3'>Name Off Object</p>
-                                        </label>
+                                    <div className='mt-4 mb-4 d-flex justify-content-center'>
+                                        {votingObject.length > 0 ?
+                                            votingObject.map((data, i) => {
+                                                return (<div key={"object-" + i}>
+                                                    <input type="radio" className="btn-check" name="voting_object_id" id={data._id} value={data._id}  autocomplete="off" required  onChange={(e) => setVotingId(e.target.value)}  />
 
-                                        <input type="radio" className="btn-check" name="options-outlined" id="success-outlined2" autocomplete="off" required />
-                                        <label className="btn btn-outline-success m-2" for="success-outlined2">
-                                            <img src="/imgs/people.png" width={175} />
-                                            <p className='mt-3'>Name Off Object</p>
-                                        </label>
-
-                                        <input type="radio" className="btn-check" name="options-outlined" id="success-outlined3" autocomplete="off" required />
-                                        <label className="btn btn-outline-success m-2" for="success-outlined3">
-                                            <img src="/imgs/people.png" width={175} />
-                                            <p className='mt-3'>Name Off Object</p>
-                                        </label>
-
-
+                                                    <label className="btn btn-outline-success m-2" for={data._id} >
+                                                        <img src={data.image} width={175} />
+                                                        <p className='mt-3'>{data.name} </p>
+                                                    </label>
+                                                </div>)
+                                            }) :
+                                            ""}
                                     </div>
                                     <div className="d-flex flex-row btn-group ">
                                         <button type="submit" className="btn btn-sm btn-success"><i className="bi bi-check2-square"></i> Submit</button>
