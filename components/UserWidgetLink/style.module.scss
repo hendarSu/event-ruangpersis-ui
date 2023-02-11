@@ -1,0 +1,13 @@
+.dropdown {
+  li {
+    a {
+      padding: 10px 20px;
+    }
+
+    border-bottom: 1px solid #e7ebef;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}

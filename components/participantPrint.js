@@ -16,13 +16,14 @@ function ParticipantPrint(props) {
         }}
         documentTitle={data.barcode}
         content={() => participantCardRef.current}
-        pageStyle={`@page { size: 90mm 123mm; margin: 5mm }`}
+        pageStyle={'@page { size: 90mm 123mm; margin: 5mm }'}
       />
       <div className="d-none">
         <div className="position-relative" ref={participantCardRef} style={{
           width: '340px',
           margin: 0
-        }}>
+        }}
+        >
           {/* <img src="/imgs/participant-card.jpg" alt="Paticipant Card" className="w-100" /> */}
           <div
             className="position-absolute"
@@ -37,7 +38,7 @@ function ParticipantPrint(props) {
                 size={125}
                 style={{ height: 'auto', maxWidth: '100%', width: '100%' }}
                 value={data.barcode}
-                viewBox={`0 0 125 125`}
+                viewBox={'0 0 125 125'}
               />
             </div>
           </div>
@@ -72,7 +73,7 @@ function ParticipantPrint(props) {
       </div>
     </>
 
-  )
+  );
 }
 
-export default ParticipantPrint
+export default ParticipantPrint;

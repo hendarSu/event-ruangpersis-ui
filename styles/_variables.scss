@@ -1,0 +1,23 @@
+$spacers: (
+  0: 0,
+  1: ($spacer * 0.25),
+  2: ($spacer * 0.5),
+  3: $spacer,
+  4: ($spacer * 1.5),
+  5: ($spacer * 3),
+  6: ($spacer * 3.5),
+  7: ($spacer * 4),
+  8: ($spacer * 4.5),
+  9: ($spacer * 5),
+  10: ($spacer * 5.5),
+  11: ($spacer * 6),
+);
+
+// scss-docs-start gray-color-variables
+$super-black:    #1C2128 !default;
+$black:    #3E4A5A;
+$gray-900: $black !default;
+
+// scss-docs-start color-variables
+$red:     #D93535 !default;
+$green:   #00A88B !default;

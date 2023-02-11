@@ -2,44 +2,44 @@ import ParticipantPrint from './participant_print';
 import ParticipantPrintAll from './participant_print_all';
 
 function Participant({ participants }) {
-    return (
-        <div className="">
-            <table className="table">
-                <tbody>
-                    <tr>
-                        <th>
+  return (
+    <div className="">
+      <table className="table">
+        <tbody>
+          <tr>
+            <th>
                             Code
-                        </th>
-                        <th>
+            </th>
+            <th>
                             NPA
-                        </th>
-                        <th>
+            </th>
+            <th>
                             Nama
-                        </th>
-                        <th>
+            </th>
+            <th>
                             PC
-                        </th>
-                        <th className="text-center">
-                            <ParticipantPrintAll participants={participants} />
-                        </th>
-                    </tr>
+            </th>
+            <th className="text-center">
+              <ParticipantPrintAll participants={participants} />
+            </th>
+          </tr>
 
-                    {participants.map((data, i) => {
-                        return (<tr key={i}>
-                            <td>{data.barcode}</td>
-                            <td>{data.participant.npa}</td>
-                            <td>{data.participant.name}</td>
-                            <td>{data.participant.pc}</td>
-                            <td className="text-center">
-                                <ParticipantPrint data={data} />
-                            </td>
-                        </tr>)
-                    })}
+          {participants.map((data, i) => {
+            return (<tr key={i}>
+              <td>{data.barcode}</td>
+              <td>{data.participant.npa}</td>
+              <td>{data.participant.name}</td>
+              <td>{data.participant.pc}</td>
+              <td className="text-center">
+                <ParticipantPrint data={data} />
+              </td>
+            </tr>);
+          })}
 
-                </tbody>
-            </table>
-        </div>
-    )
+        </tbody>
+      </table>
+    </div>
+  );
 }
 
-export default Participant
+export default Participant;

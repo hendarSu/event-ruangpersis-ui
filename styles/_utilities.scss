@@ -1,0 +1,20 @@
+$utilities: map-merge(
+  $utilities,
+  (
+    // scss-docs-end utils-text
+    // scss-docs-start utils-color
+    "color": (
+      property: color,
+      class: text,
+      local-vars: (
+        "text-opacity": 1
+      ),
+      values: map-merge(
+        $utilities-text-colors,
+        (
+          "super-black": rgba($super-black, 1), // deprecated
+        )
+      )
+    ),
+  )
+);
