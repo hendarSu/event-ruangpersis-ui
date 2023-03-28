@@ -18,3 +18,23 @@ $utilities: map-merge(
     ),
   )
 );
+
+@for $i from 1 through 500 {
+  .fs-#{$i}px {font-size: $i + px !important; }
+}
+
+@for $i from 1 through 800 {
+  .w-#{$i}px {width: $i + px !important; }
+}
+
+.fc-black {
+  color: $black !important;
+}
+
+.fc-super-black {
+  color: $super-black !important;
+}
+
+.fc-tiffany-04 {
+  color: $tiffany-04 !important;
+}

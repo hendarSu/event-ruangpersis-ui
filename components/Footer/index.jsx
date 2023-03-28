@@ -18,7 +18,7 @@ function Footer() {
             <p className="text-small m-0">Ruang Persis adalah Lorem ipsum dolor sit amet consectetur. Purus lacus cursus eu egestas neque urna mauris sagittis. </p>
           </div>
 
-          <div className="col-12 col-md-5 mb-2 my-4 my-sm-0">
+          <div className="col-12 col-md-5 mb-2 my-4 my-sm-0 px-2px px-sm-10 mb-4 mb-sm-0">
             <h6 className="text-small">About Us</h6>
             <ul className="nav flex-column">
               <li className="nav-item mb-2"><a href="#" className="p-0">Contact Us</a></li>
@@ -29,10 +29,9 @@ function Footer() {
             <form>
               <h6 className="text-small">Subscribe to our Newsletter</h6>
               <p>Get the latest update for exciting events around you!</p>
-              <div className="d-flex flex-column flex-sm-row w-100 gap-2">
-                <label htmlFor="newsletter1" className="visually-hidden">Email address</label>
-                <input id="newsletter1" type="text" className="form-control" placeholder="Email address" />
-                <button className="btn btn-primary" type="button">Subscribe</button>
+              <div className={`input-group mb-3 ${style['subscribe']}`}>
+                <input type="text" className={`px-3 form-control ${style['form-control']}`} placeholder="Enter your email" aria-label="Enter your email" aria-describedby="basic-addon2" />
+                <span className={`${style['mail']}`} />
               </div>
             </form>
           </div>

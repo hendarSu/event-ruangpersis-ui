@@ -1,4 +1,23 @@
+@import "../../styles/variables";
+
 .footer {
   min-height: 388px;
   background: linear-gradient(93.09deg, #00a88b 1.55%, #04eac2 100%);
+}
+
+.subscribe {
+  border: 0.5px solid #dbe0e3;
+  border-radius: 39px;
+  background: $white;
+  height: 46px;
+  
+  .form-control {
+    border-radius: 39px;
+    border: 0px;
+  }
+
+  .mail {
+    width: 50px;
+    background: url("/icons/mail.svg") no-repeat center;
+  }
 }

@@ -1,0 +1,27 @@
+@import "../../styles/variables";
+
+.img-event {
+  border-radius: 200px;
+  background-size: cover;
+  object-fit: cover;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 45px;
+  border-top-right-radius: 45px;
+}
+
+.content {
+  color: $black;
+}
+
+.title {
+  color: $super-black;
+}
+
+.favorite {
+  background: url("/icons/favorite.svg") no-repeat center;
+
+  &:hover {
+    background: url("/icons/favorited.svg") no-repeat center;
+  }
+}
