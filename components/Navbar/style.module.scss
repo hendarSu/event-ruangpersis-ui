@@ -1,0 +1,23 @@
+.navbar-expand-lg {
+  padding: 20px 0;
+  background: #fcfdfd;
+}
+
+.navbar-wrapper {
+  grid-template-columns: 2fr 1fr;
+}
+
+.nav-item {
+  padding: 10px 19px;
+  background: transparent;
+  border-radius: 10px;
+
+  &:hover {
+    background: #f0f2f3;
+    color: #101315;
+  }
+
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}

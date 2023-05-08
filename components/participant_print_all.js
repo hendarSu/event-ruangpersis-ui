@@ -10,7 +10,7 @@ function ParticipantPrintAll({ participants }) {
       <ReactToPrint
         trigger={() => <button className="btn btn-sm btn-success">Print All</button>}
         content={() => participantCardRef.current}
-        pageStyle={`@page { size: 90mm 123mm; margin: 5mm }`}
+        pageStyle={'@page { size: 90mm 123mm; margin: 5mm }'}
       />
       <div className="d-none">
         <div ref={participantCardRef}>
@@ -18,7 +18,7 @@ function ParticipantPrintAll({ participants }) {
         </div>
       </div>
     </>
-  )
+  );
 }
 
 function TemplatePrintAll({ datas }) {
@@ -31,7 +31,7 @@ function TemplatePrintAll({ datas }) {
 
   return (
     <div>{printPages}</div>
-  )
+  );
 }
 
 export default ParticipantPrintAll;

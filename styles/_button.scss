@@ -1,0 +1,23 @@
+.btn-secondary {
+  color: $tiffany-04;
+  
+  &:hover {
+    color: $tiffany-04;
+  }
+}
+
+.btn-primary {
+  color: $white;
+  
+  &:hover {
+    color: $white;
+  }
+}
+
+.btn-outline {
+  border: 1px solid $raisin-black-09;
+
+  &:hover {
+    border: 1px solid $raisin-black-09;
+  }
+}

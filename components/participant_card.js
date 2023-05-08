@@ -1,5 +1,5 @@
-import React from 'react'
-import QRCode from 'react-qr-code'
+import React from 'react';
+import QRCode from 'react-qr-code';
 
 function ParticipantCard({ data }) {
   return (
@@ -7,7 +7,8 @@ function ParticipantCard({ data }) {
       width: '340px',
       margin: 0,
       pageBreakAfter: 'always'
-    }}>
+    }}
+    >
       <img src="/imgs/participant-card.jpg" alt="Paticipant Card" className="w-100" />
       <div
         className="position-absolute"
@@ -22,7 +23,7 @@ function ParticipantCard({ data }) {
             size={125}
             style={{ height: 'auto', maxWidth: '100%', width: '100%' }}
             value={data.barcode}
-            viewBox={`0 0 125 125`}
+            viewBox={'0 0 125 125'}
           />
         </div>
       </div>
@@ -54,7 +55,7 @@ function ParticipantCard({ data }) {
         </p>
       </div>
     </div>
-  )
+  );
 }
 
-export default ParticipantCard
+export default ParticipantCard;

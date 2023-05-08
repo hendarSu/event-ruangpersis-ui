@@ -16,7 +16,7 @@ function ParticipantPrint(props) {
           );
         }}
         content={() => participantCardRef.current}
-        pageStyle={`@page { size: 90mm 123mm; margin: 5mm }`}
+        pageStyle={'@page { size: 90mm 123mm; margin: 5mm }'}
       />
       <div className="d-none">
         <div ref={participantCardRef}>
@@ -25,7 +25,7 @@ function ParticipantPrint(props) {
       </div>
     </>
 
-  )
+  );
 }
 
-export default ParticipantPrint
+export default ParticipantPrint;
