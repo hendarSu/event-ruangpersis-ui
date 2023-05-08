@@ -29,7 +29,7 @@ function Schedules({ schedules }) {
                             <td>{data.time}</td>
                             <td>
                                 {(data.type != "evoting") ? <Link className="btn btn-sm btn-light" href={"/presences/"+data._id}><i className="bi bi-person-check"></i> Kehadiran</Link> :
-                                 <Link className="btn btn-sm btn-light" href={"/evoting/"+data._id}><i className="bi bi-pie-chart"></i> Evoting</Link> 
+                                 <Link className="btn btn-sm btn-light" href={"/evoting/result/"+data._id}><i className="bi bi-pie-chart"></i> Evoting</Link> 
                                 }
                             </td>
                         </tr>)
