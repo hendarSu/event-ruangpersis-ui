@@ -61,7 +61,7 @@ function Home() {
       <div className="container" style={{ marginTop: '100px', }}>
         <div className="row mt-3" style={{ marginBottom: "100px" }}>
           <div className="col-md-6 mb-4">
-            <div className="card">
+            <div className="card border-0 shadow">
               <div className="card-body">
                 <h5 className="card-title"><strong>Perhatian</strong></h5>
                 <p className="card-text">Bagi Cabang yang akan mendaftarkan pesertanya silahakn mendaftarkannya
@@ -103,7 +103,7 @@ function Home() {
             </div>
           </div>
           <div className="col-md-6">
-            <div className="shadow-lg">
+            <div className="shadow-sm">
               <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
               <div className="carousel-inner">
                 <div className="carousel-item active">
