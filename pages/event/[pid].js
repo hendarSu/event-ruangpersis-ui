@@ -24,17 +24,15 @@ const Event = () => {
   const [eventQuota, setEventQuota] = useState({});
   const [participants, setParticipants] = useState([]);
 
-  const eventData = async () => {
-    if (!pid && typeof pid === 'undefined') {
-      //redirect page dashboard
-      Router.push('/dashboard');
-    } else {
-      //fetch user from Rest API
-      await axios.get(`${process.env.NEXT_PUBLIC_API_BACKEND}/v1/events/public/${pid}`)
+  const eventData = async (id) => {
+    if (pid && typeof pid !== 'undefined') {
+      await axios.get(`${process.env.NEXT_PUBLIC_API_BACKEND}/v1/events/public/${id}`)
         .then((response) => {
           setEvent(current => response.data.data);
           eventDataOne(response.data.data._id);
           eventQuotaOne(response.data.data._id);
+        }).catch(err => {
+          Router.push('/dashboard');
         })
     }
   }
@@ -61,10 +59,10 @@ const Event = () => {
   useEffect(() => {
     //check token
     if (Cookies.get('token')) {
-      eventData();
+      eventData(pid);
     }
 
-  }, []);
+  }, [pid]);
 
   return (
     <Layout>
@@ -85,66 +83,68 @@ const Event = () => {
           <div className='row' style={{
             marginTop: "100px"
           }} >
-            <div className='col-md-4'>
+            <div className='col-md-8'>
               <div className='shadow-sm'>
                 <img src="/imgs/musda.jpg" className="img-fluid rounded-start" alt="..." />
               </div>
             </div>
-            <div className='col-md-8'>
+            <div className='col-md-4'>
               {event.type_event === "PRIVATE" ?
                 <EventSubmit event={event} /> : ""
               }
-              <div className='row mt-4'>
-                <div className='col-md-7'>
-                  <h5 className='fw-light'>Tentang {event.name}</h5>
-                  <p>
-                    {event.description}
-                  </p>
-                  <h5 className='fw-light'>Agenda {event.name}</h5>
-                  <table className='table'>
-                    <tbody>
-                      <tr>
-                        <td>
-                          Tanggal
-                        </td>
-                        <td>:</td>
-                        <td>
-                          {event ? event.date : event.date} s/d Selesai
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Waktu Mulai
-                        </td>
-                        <td>:</td>
-                        <td>
-                          {event.time} WIB
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <h5 className='fw-light'>Lokasi</h5>
-                  <p>{event.location}</p>
-                </div>
-                {event.type_event === "PRIVATE" ?
-                  <div className='col-md-5 text-center'>
-                    <h5 className='fw-light'>
-                      Untuk Infaq Peserta dapat melalui
-                    </h5>
-                    <img src="/imgs/musda-rek.png" className="img-fluid rounded-start" alt="..." />
-                    <hr />
-                    {eventQuota ?
-                      <h5>
-                        Total Infaq Rp {new Intl.NumberFormat().format(eventQuota.quota * 200000)}
+              {event.type_event === "PRIVATE" ?
+                    <div className='text-center mt-5'>
+                      <h5 className='fw-light'>
+                        Untuk Infaq Peserta dapat melalui
                       </h5>
-                      : ""}
-                  </div>
-                  : ""
-                }
-              </div>
+                      <img src="/imgs/musda-rek.png" className="img-fluid rounded-start" alt="..." />
+                      <hr />
+                      {eventQuota ?
+                        <h5 className='text-success fw-bold' >
+                          Total Infaq Rp {new Intl.NumberFormat().format(eventQuota.quota * 200000)}
+                        </h5>
+                        : ""}
+                    </div>
+                    : ""
+                  }
             </div>
             <div className='col-md-12'>
-              <div className='shadow-sm p-3 mt-5'>
+              <div className='row mt-4 p-3 shadow-sm'>
+                  <div className='col-md-12'>
+                    <h5 className='fw-bold mb-4'>Tentang {event.name}</h5>
+                    <p>
+                      {event.description}
+                    </p>
+                    <h5 className=''>Agenda {event.name}</h5>
+                    <table className='table table-borderless'>
+                      <tbody>
+                        <tr>
+                          <td width={150}>
+                            Tanggal
+                          </td>
+                          <td width={1}>:</td>
+                          <td>
+                            {event ? event.date : event.date} s/d Selesai
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            Waktu Mulai
+                          </td>
+                          <td>:</td>
+                          <td>
+                            {event.time} WIB
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <h5 className=''>Lokasi</h5>
+                    <p>{event.location}</p>
+                  </div>
+                </div>
+            </div>
+            <div className='col-md-12 shadow-sm mt-5'>
+              <div className='p-3'>
                 <h5>
                   <b>Perwakilan Peserta</b> <br />
                   {eventQuota ? <small className='fw-light'>Kuota Tersisa {eventQuota.quota - participants.length}</small> : " "}
