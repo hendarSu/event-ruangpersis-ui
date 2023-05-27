@@ -74,10 +74,10 @@ function Dashboard() {
             <div className="container" style={{ marginTop: "80px" }}>
                 <div className="row justify-content-center">
                     <div className="col-md-12">
-                        <div className="card border-0 rounded shadow-sm">
+                        <div className="card border-0 rounded">
                             <div className="card-body row">
                                 <div className="col-md-11">
-                                    Selamat datang <strong className="text-uppercase">{user.username}</strong>
+                                    Selamat datang <strong className="fw-bold">{user.username}</strong>
                                 </div>
                             </div>
                         </div>

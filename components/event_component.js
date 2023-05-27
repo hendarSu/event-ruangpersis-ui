@@ -2,8 +2,8 @@ import Link from 'next/link'
 
 function EventComponent({ event }) {
     const eventList = event.map((data) =>
-        <div className="col-md-3" key={data._id}>
-            <div className="card mb-3 rounded shadow-sm">
+        <div className="col-md-4" key={data._id}>
+            <div className="card border-0 mb-3 rounded shadow">
                 <div className="row g-0">
                     <div className="col-md-12">
                         <img src="/imgs/musda.jpg" className="img-fluid rounded-start" alt="..." />

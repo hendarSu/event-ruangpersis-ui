@@ -51,7 +51,7 @@ function EventSubmit({ event }) {
 
 
     return (
-        <div className="card border-0 rounded shadow-lg">
+        <div className="card border-0 rounded shadow">
             <div className="card-body">
                 <h5 className="fw-light">Daftarkan Peserta {event.name}</h5>
                 <hr />

@@ -40,7 +40,7 @@ function Navbar() {
 
   return (
     <header>
-      <nav className="navbar navbar-expand-md navbar-dark fixed-top fixed-top border-0 shadow-sm">
+      <nav className="navbar navbar-expand-md navbar-dark fixed-top fixed-top border-0 shadow-none">
         <div className="container">
 
           <Link href="/dashboard" className="navbar-brand">
