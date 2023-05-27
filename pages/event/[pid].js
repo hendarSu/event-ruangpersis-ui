@@ -93,14 +93,14 @@ const Event = () => {
                 <EventSubmit event={event} /> : ""
               }
               {event.type_event === "PRIVATE" ?
-                    <div className='text-center mt-5'>
+                    <div className='text-center mt-4'>
                       <h5 className='fw-light'>
                         Untuk Infaq Peserta dapat melalui
                       </h5>
                       <img src="/imgs/musda-rek.png" className="img-fluid rounded-start" alt="..." />
-                      <hr />
+                      {/* <hr /> */}
                       {eventQuota ?
-                        <h5 className='text-success fw-bold' >
+                        <h5 className='text-success mt-2 fw-bold' >
                           Total Infaq Rp {new Intl.NumberFormat().format(eventQuota.quota * 200000)}
                         </h5>
                         : ""}
