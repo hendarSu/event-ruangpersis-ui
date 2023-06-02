@@ -107,11 +107,11 @@ function Home() {
               <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
               <div className="carousel-inner">
                 <div className="carousel-item active">
-                  <img src="/imgs/musda.jpg" className="d-block w-100" />
+                  <img src="/imgs/musda.jpeg" className="d-block w-100" />
                 </div>
-                <div className="carousel-item">
+                {/* <div className="carousel-item">
                   <img src="/imgs/events.jpeg" className="d-block w-100" />
-                </div>
+                </div> */}
               </div>
               <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
                 <span className="carousel-control-prev-icon" aria-hidden="true"></span>

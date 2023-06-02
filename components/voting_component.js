@@ -6,7 +6,7 @@ function EvotingComponent({ event }) {
             <div className="card mb-3 rounded shadow-sm">
                 <div className="row g-0">
                     <div className="col-md-12">
-                        <img src="/imgs/musda.jpg" className="img-fluid rounded-start" alt="..." />
+                        <img src="/imgs/musda.jpeg" className="img-fluid rounded-start" alt="..." />
                     </div>
                     <div className="col-md-12">
                         <div className="card-body">
