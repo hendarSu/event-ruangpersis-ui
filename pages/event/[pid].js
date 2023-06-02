@@ -94,7 +94,7 @@ const Event = () => {
                 <EventSubmit event={event} /> : ""
               }
               {event.type_event === "PRIVATE" ?
-                    <div className='row mt-4 p-3 shadow-sm'>
+                    <div className='row mt-4 p-3'>
                     <div className='col-md-12'>
                       <h5 className='fw-bold mb-4'>Tentang {event.name}</h5>
                       <p>
