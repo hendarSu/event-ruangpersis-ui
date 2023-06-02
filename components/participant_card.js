@@ -8,7 +8,7 @@ function ParticipantCard({ data }) {
       margin: 0,
       pageBreakAfter: 'always'
     }}>
-      <img src="/imgs/participant-card.jpg" alt="Paticipant Card" className="w-100" />
+      <img src="/imgs/participant-card.jpeg" alt="Paticipant Card" className="w-100" />
       <div
         className="position-absolute"
         style={{
