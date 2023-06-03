@@ -77,7 +77,7 @@ function Dashboard() {
                         <div className="card border-0 rounded">
                             <div className="card-body row">
                                 <div className="col-md-11">
-                                    Selamat datang <strong className="fw-bold">{user.username}</strong>
+                                    Selamat datang <strong className="fw-bold">{user.name}</strong>
                                 </div>
                             </div>
                         </div>
