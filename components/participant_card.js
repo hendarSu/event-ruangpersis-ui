@@ -50,7 +50,7 @@ function ParticipantCard({ data }) {
           className="text-center"
           style={{ fontWeight: '500', fontSize: '12px', textTransform: 'uppercase' }}
         >
-          PC {data.participant.pc}
+          PC {data.user.name}
         </p>
       </div>
     </div>
