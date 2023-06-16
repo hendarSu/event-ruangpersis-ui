@@ -17,7 +17,7 @@ function Participant({ participants }) {
                             Nama
                         </th>
                         <th>
-                            PC
+                            Utusan
                         </th>
                         <th className="text-center">
                             <ParticipantPrintAll participants={participants} />
@@ -29,7 +29,7 @@ function Participant({ participants }) {
                             <td>{data.barcode}</td>
                             <td>{data.participant.npa}</td>
                             <td>{data.participant.name}</td>
-                            <td>{data.participant.pc}</td>
+                            <td>{data.participant.user.name}</td>
                             <td className="text-center">
                                 <ParticipantPrint data={data} />
                             </td>
