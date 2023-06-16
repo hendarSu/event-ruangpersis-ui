@@ -29,7 +29,7 @@ function Participant({ participants }) {
                             <td>{data.barcode}</td>
                             <td>{data.participant.npa}</td>
                             <td>{data.participant.name}</td>
-                            <td>{data.participant.user.name}</td>
+                            <td>{data.user.name}</td>
                             <td className="text-center">
                                 <ParticipantPrint data={data} />
                             </td>
