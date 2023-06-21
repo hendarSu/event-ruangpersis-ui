@@ -90,9 +90,9 @@ const Event = () => {
               </div>
             </div>
             <div className='col-md-5'>
-              {event.type_event === "PRIVATE" ?
+              {/* {event.type_event === "PRIVATE" ?
                 <EventSubmit event={event} /> : ""
-              }
+              } */}
               {event.type_event === "PRIVATE" ?
                     <div className='row mt-4 p-3'>
                     <div className='col-md-12'>
