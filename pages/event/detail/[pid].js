@@ -63,7 +63,7 @@ const EventDetail = () => {
             eventData();
         }
 
-    }, []);
+    }, [pid]);
 
     return (
         <Layout>
