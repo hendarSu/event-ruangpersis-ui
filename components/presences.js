@@ -15,6 +15,9 @@ function PresencesList({ participants }) {
                         <th>
                             Nama
                         </th>
+                        <th>
+                            Utusan
+                        </th>
                     </tr>
 
                     {participants.map((data, i) => {
@@ -23,6 +26,7 @@ function PresencesList({ participants }) {
                             <td>{data.register.barcode}</td>
                             <td>{data.participant.npa}</td>
                             <td>{data.participant.name}</td>
+                            <td>{data.user.name}</td>
                         </tr>)
                     })}
 
