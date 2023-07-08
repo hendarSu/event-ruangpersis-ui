@@ -87,7 +87,7 @@ const Evoting = () => {
         } else {
             Router.push('/evoting');
         }
-    }, []);
+    }, [pid]);
 
     return (
         <Layout>

@@ -69,7 +69,7 @@ const Evoting = () => {
         } else {
             Router.push('/event');
         }
-    }, []);
+    }, [pid]);
 
     return (
         <Layout>
